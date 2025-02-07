@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SLOP! - A Fresh Take on Chia Pudding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* CSS Reset */
+      body,
+      h1,
+      h2,
+      h3,
+      p,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      /* Global Styles */
+      body {
+        font-family: 'DM Sans', sans-serif;
+        color: #2c3e50;
+        background-color: #fffaf0;
+        line-height: 1.6;
+        overflow-x: hidden;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f7e9d1' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px 15px;
+        box-sizing: border-box;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: 'Bangers', cursive;
+        letter-spacing: 3px;
+        color: #2c3e50;
+        margin-bottom: 0.5em;
+        text-shadow: 2px 2px 0px rgba(252, 228, 76, 0.3);
+      }
+
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 0.3em;
+        color: #34495e;
+        line-height: 1.1;
+        text-transform: italic;
+      }
+      h2 {
+        font-size: 2.5em;
+        line-height: 1.2;
+      }
+      h3 {
+        font-size: 1.8em;
+        line-height: 1.3;
+      }
+
+      p {
+        margin-bottom: 1em;
+        font-size: 1.1em;
+        color: #34495e;
+        font-weight: 450;
+      }
+
+      /* Sections */
+      section {
+        padding: 80px 0;
+        position: relative;
+      }
+
+      .section-inner {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 40px;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Hero Section */
+      #hero {
+        background: linear-gradient(135deg, #fff8e1 0%, #fffde7 100%);
+        position: relative;
+        overflow: hidden;
+        padding: 0;
+      }
+
+      #hero .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-top: 10px;
+      }
+
+      #hero h1 {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .logo-container {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        margin-bottom: 15px;
+        width: 100%;
+        max-width: 700px;
+        padding: 10px;
+        margin-left: -60px;
+        min-height: 250px;
+      }
+
+      .cup-image {
+        width: 280px;
+        height: auto;
+        margin-right: -140px;
+        margin-bottom: -20px;
+        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+        animation: float-cup 4s ease-in-out infinite;
+        z-index: 1;
+        transform-origin: center center;
+        position: relative;
+        top: -10px;
+        left: -20px;
+      }
+
+      #hero .logo {
+        width: 180px;
+        height: auto;
+        position: relative;
+        z-index: 2;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+        animation: float-logo 5s ease-in-out infinite;
+        margin-top: 40px;
+        transform-origin: center center;
+        right: -20px;
+      }
+
+      @keyframes float-cup {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        50% {
+          transform: translate(-15px, 15px) rotate(3deg);
+        }
+      }
+
+      @keyframes float-logo {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(-5deg);
+        }
+        50% {
+          transform: translate(12px, -12px) rotate(-8deg);
+        }
+      }
+
+      #hero .logo:hover {
+        animation-play-state: paused;
+        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+      }
+
+      .cup-image:hover {
+        animation-play-state: paused;
+      }
+
+      #hero .tagline {
+        font-size: 1.2em;
+        color: #666;
+        margin-bottom: 15px;
+        font-weight: 500;
+        max-width: 600px;
+        line-height: 1.5;
+      }
+
+      #hero .hero-image {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 800px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      #hero .hero-image:hover {
+        transform: translateY(-5px) rotate(-1deg);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: #fff;
+        padding: 18px 35px;
+        font-size: 1.3em;
+        text-decoration: none;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        font-weight: 700;
+        font-family: 'DM Sans', sans-serif;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        box-shadow: 0 4px 15px rgba(44, 62, 80, 0.15),
+          0 8px 25px rgba(44, 62, 80, 0.1),
+          inset 0 2px 10px rgba(255, 255, 255, 0.2);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+      }
+
+      .cta-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 6px 20px rgba(44, 62, 80, 0.2),
+          0 10px 30px rgba(44, 62, 80, 0.15),
+          inset 0 2px 10px rgba(255, 255, 255, 0.3);
+        background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+      }
+
+      .cta-button:hover::before {
+        left: 100%;
+      }
+
+      /* Stats Cards */
+      .hero-stats {
+        position: relative;
+        width: 100%;
+        height: 140px;
+        margin: 5px auto 15px;
+        overflow: visible;
+        padding: 10px 0;
+        max-width: 800px;
+      }
+
+      .hero-stats-track {
+        display: flex;
+        width: fit-content;
+        animation: scroll 20s linear infinite;
+        padding: 10px 20px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero-stats-track::before,
+      .hero-stats-track::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 100%;
+        z-index: 2;
+      }
+
+      .hero-stats-track::before {
+        left: 0;
+        background: linear-gradient(to right, #fffaf0 0%, transparent 100%);
+      }
+
+      .hero-stats-track::after {
+        right: 0;
+        background: linear-gradient(to left, #fffaf0 0%, transparent 100%);
+      }
+
+      .hero-stats-track:hover {
+        animation-play-state: paused;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .stat-card {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 15px 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(44, 62, 80, 0.1);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        text-align: center;
+        margin: 0 12px;
+        min-width: 150px;
+        flex-shrink: 0;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(44, 62, 80, 0.15);
+      }
+
+      .stat-number,
+      .fun-stat {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 2.2em;
+        font-weight: 800;
+        color: #2c3e50;
+        margin-bottom: 2px;
+        letter-spacing: 0px;
+      }
+
+      .stat-label,
+      .fun-label {
+        font-size: 0.85em;
+        color: #666;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* What IS SLOP!? Section */
+      #what-is-slop {
+        background: linear-gradient(135deg, #fce44c 0%, #ffd700 100%);
+        padding: 60px 0 80px;
+      }
+
+      .section-separator {
+        width: 100%;
+        height: 2px;
+        background: rgba(44, 62, 80, 0.1);
+        margin: 40px 0;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .section-separator::before {
+        content: '★';
+        color: rgba(44, 62, 80, 0.3);
+        position: absolute;
+        padding: 0 20px;
+        font-size: 1.2em;
+        background: #fde03a;
+      }
+
+      #what-is-slop ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 40px;
+      }
+
+      #what-is-slop li {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        width: 250px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        backdrop-filter: blur(10px);
+        cursor: pointer;
+      }
+
+      #what-is-slop li:hover {
+        transform: translateY(-5px) rotate(-1deg);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      #what-is-slop li .icon {
+        font-size: 3.5em;
+        position: absolute;
+        top: 5px;
+        left: 15px;
+        opacity: 0.5;
+        transform: rotate(-15deg);
+        transition: all 0.3s ease;
+      }
+
+      #what-is-slop li:hover .icon {
+        transform: rotate(-20deg) scale(1.1);
+        opacity: 0.7;
+      }
+
+      #what-is-slop li .content {
+        position: relative;
+        z-index: 1;
+        text-align: right;
+        padding-left: 20px;
+      }
+
+      #what-is-slop li .content strong {
+        display: block;
+        margin-bottom: 15px;
+        color: #2c3e50;
+        font-weight: 700;
+        font-size: 1.1em;
+        margin-left: 0;
+        padding-right: 15px;
+      }
+
+      #what-is-slop li .content p {
+        margin: 0;
+        padding-top: 5px;
+        padding-right: 15px;
+      }
+
+      #what-is-slop h3 {
+        margin-bottom: 20px;
+        margin-top: 40px;
+      }
+
+      /* Why SLOP!? Section */
+      #why-slop {
+        background: linear-gradient(135deg, #fffde7 0%, #fff8e1 100%);
+        position: relative;
+        z-index: 1;
+        padding: 40px 0 80px;
+      }
+
+      .benefit-section {
+        background: rgba(255, 255, 255, 0.7);
+        padding: 30px;
+        margin-bottom: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        cursor: pointer;
+      }
+
+      .benefit-section:hover {
+        transform: translateY(-5px) rotate(-1deg);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .benefit-section h3 {
+        transition: all 0.3s ease;
+      }
+
+      .benefit-section:hover h3 {
+        transform: scale(1.02);
+      }
+
+      /* Ingredients Section */
+      #ingredients {
+        background: linear-gradient(135deg, #ffd700 0%, #fce44c 100%);
+        padding: 40px 0 80px;
+      }
+
+      .ingredient-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .weight {
+        font-family: 'Bangers', cursive;
+        font-size: 1.5em;
+        font-weight: 600;
+        color: #fff;
+        background: #ff3b3b;
+        width: 90px;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        position: absolute;
+        right: -20px;
+        top: -20px;
+        transform: rotate(12deg);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+          inset 0 -3px 6px rgba(0, 0, 0, 0.1),
+          inset 0 3px 6px rgba(255, 255, 255, 0.1);
+        z-index: 1;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        letter-spacing: 2px;
+      }
+
+      .weight::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        border: 2px dashed rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+      }
+
+      .weight::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 50%;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.2) 0%,
+          transparent 100%
+        );
+        border-radius: 55px 55px 0 0;
+      }
+
+      .ingredient-card {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: visible;
+      }
+
+      .card-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-bottom: 12px;
+        padding-right: 75px;
+      }
+
+      .ingredient-card h4 {
+        color: #2c3e50;
+        font-family: 'Bangers', cursive;
+        font-size: 1.8em;
+        margin: 0;
+        letter-spacing: 3px;
+        transition: all 0.3s ease;
+        line-height: 1.1;
+      }
+
+      .ingredient-card p {
+        color: #486683;
+        margin: 0 0 12px;
+        font-size: 1em;
+        font-weight: 500;
+        opacity: 0.9;
+      }
+
+      /* Updated Nutrition Metrics Styles */
+      .nutrition-metrics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 15px;
+      }
+
+      .nutrition-metrics .metric {
+        background: #2c3e50;
+        color: white;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .nutrition-metrics .metric::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px 20px 0 0;
+      }
+
+      .ingredient-card ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .ingredient-card ul li {
+        text-align: right;
+        font-style: normal;
+        margin: 0;
+        padding: 0;
+        color: #486683;
+        font-size: 1em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-weight: 500;
+      }
+
+      .ingredient-card ul li span {
+        font-size: 1.3em;
+        display: flex;
+        align-items: center;
+      }
+
+      .ingredient-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .ingredient-card:hover h4 {
+        transform: scale(1.02);
+      }
+
+      .ingredient-card:hover .weight {
+        transform: rotate(15deg) scale(1.05);
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2),
+          inset 0 -3px 6px rgba(0, 0, 0, 0.1),
+          inset 0 3px 6px rgba(255, 255, 255, 0.1);
+      }
+
+      /* Nutrition Metrics Styles */
+      .nutrition-metrics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+
+      .nutrition-metrics .metric {
+        background: rgba(44, 62, 80, 0.1);
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 0.85em;
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      .bryan-emoji {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+        margin-right: 2px;
+        transition: all 0.3s ease;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+
+      .blueprint-approved a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: #486683;
+        font-weight: 500;
+        background: rgba(135, 206, 250, 0.15);
+        padding: 8px 12px;
+        border-radius: 20px;
+        position: relative;
+        transition: all 0.3s ease;
+        isolation: isolate;
+      }
+
+      .blueprint-approved a::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: 22px;
+        padding: 2px;
+        background: linear-gradient(
+          90deg,
+          #3498db 0%,
+          #2ecc71 50%,
+          #3498db 100%
+        );
+        background-size: 200% 100%;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        animation: rotate-border 3s linear infinite;
+      }
+
+      @keyframes rotate-border {
+        0% {
+          background-position: 100% 0;
+        }
+        100% {
+          background-position: -100% 0;
+        }
+      }
+
+      .blueprint-approved a:hover {
+        color: #2c3e50;
+        background: rgba(135, 206, 250, 0.25);
+        transform: translateY(-2px);
+      }
+
+      .blueprint-approved a:hover::before {
+        animation-duration: 1.5s;
+      }
+
+      .blueprint-approved {
+        position: relative;
+        animation: gentle-bounce 2s ease-in-out infinite;
+      }
+
+      .blueprint-approved:hover {
+        animation: excited-bounce 0.5s ease-in-out infinite;
+      }
+
+      .blueprint-approved:hover .bryan-emoji {
+        transform: scale(1.2) rotate(-5deg);
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+      }
+
+      @keyframes gentle-bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-3px);
+        }
+      }
+
+      @keyframes excited-bounce {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-5px) scale(1.02);
+        }
+      }
+
+      /* Bryan Johnson Link Styles */
+      .bryan-johnson a {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+        color: #486683;
+        transition: all 0.3s ease;
+      }
+
+      .bryan-johnson a:hover {
+        color: #2c3e50;
+        transform: scale(1.05);
+      }
+
+      /* Get in Touch Section */
+      #get-in-touch {
+        background: linear-gradient(135deg, #fff8e1 0%, #fffde7 100%);
+        position: relative;
+        padding: 40px 0 80px;
+      }
+
+      #get-in-touch .section-inner > p {
+        margin-bottom: 40px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      #contact-form {
+        background: rgba(255, 255, 255, 0.9);
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+      }
+
+      #contact-form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #2c3e50;
+      }
+
+      #contact-form input[type='text'],
+      #contact-form input[type='email'],
+      #contact-form select,
+      #contact-form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 2px solid #e5e7eb;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        transition: all 0.3s ease;
+        font-family: 'DM Sans', sans-serif;
+        box-sizing: border-box;
+      }
+
+      #contact-form .cta-button {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+
+      #contact-form .small-print {
+        text-align: center;
+        color: #666;
+        font-size: 0.9em;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      #contact-form input:focus,
+      #contact-form select:focus,
+      #contact-form textarea:focus {
+        outline: none;
+        border-color: #fce44c;
+        box-shadow: 0 0 0 3px rgba(252, 228, 76, 0.2);
+      }
+
+      /* Footer */
+      footer {
+        background: #2c3e50;
+        color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+        padding: 30px 0;
+        position: relative;
+      }
+
+      footer .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      footer p {
+        margin: 0;
+        opacity: 0.85;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      footer a {
+        color: rgba(252, 228, 76, 0.95);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 5px 10px;
+        border-radius: 6px;
+      }
+
+      footer a:hover {
+        color: #ffd700;
+        background: rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <section id="hero">
+      <div class="container">
+        <div class="logo-container">
+          <img src="SLOP-colorful.png" alt="SLOP! Cup" class="cup-image" />
+          <img src="SLOP-no-bg.png" alt="SLOP! Logo" class="logo" />
+        </div>
+        <h1>Get Your Deliciously Healthy Fix.</h1>
+        <p class="tagline">
+          The health nut's new obsession: Chia seed pudding that's actually
+          exciting, packed with protein, and ridiculously good for you.
+        </p>
+        <div class="hero-stats">
+          <div class="hero-stats-track">
+            <!-- First set of cards -->
+            <div class="stat-card">
+              <div class="stat-number">💪 50g</div>
+              <div class="stat-label">Protein</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">🔥 730</div>
+              <div class="stat-label">Calories</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">🖖 6</div>
+              <div class="stat-label">Ingredients</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">🌱 100%</div>
+              <div class="stat-label">Plant Power</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">🙆‍♀️ Ur Mom</div>
+              <div class="stat-label">Approves</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">🙅‍♂️ 0%</div>
+              <div class="stat-label">Sad Desk Lunch</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">🤯 ∞</div>
+              <div class="stat-label">Flavor Points</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">🌈 5</div>
+              <div class="stat-label">Happy Gut Rating</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">👻 Bye</div>
+              <div class="stat-label">Snack Cravings</div>
+            </div>
+            <!-- Duplicate set for seamless scrolling -->
+            <div class="stat-card">
+              <div class="stat-number">💪 50g</div>
+              <div class="stat-label">Protein</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">🔥 730</div>
+              <div class="stat-label">Calories</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">🖖 6</div>
+              <div class="stat-label">Ingredients</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">🌱 100%</div>
+              <div class="stat-label">Plant Power</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">🙆‍♀️ Ur Mom</div>
+              <div class="stat-label">Approves</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">🙅‍♂️ 0%</div>
+              <div class="stat-label">Sad Desk Lunch</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">🤯 ∞</div>
+              <div class="stat-label">Flavor Points</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">🌈 5</div>
+              <div class="stat-label">Happy Gut Rating</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">👻 Bye</div>
+              <div class="stat-label">Snack Cravings</div>
+            </div>
+          </div>
+        </div>
+        <a href="#get-in-touch" class="cta-button">Get Me Some SLOP!</a>
+        <img
+          src="slop-city.jpg"
+          alt="SLOP! Chia Seed Pudding"
+          class="hero-image"
+        />
+      </div>
+    </section>
+
+    <section id="what-is-slop">
+      <div class="section-inner">
+        <h2>What the h@#k is SLOP!?</h2>
+        <p>
+          Born right here in the city with a simple goal: creating a breakfast
+          and snack that actually *delivers*.
+        </p>
+
+        <p>
+          Tired of sad desk lunches and sugary energy crashes? Yeah, us too. So,
+          we made something better.
+        </p>
+
+        <p>
+          Delicious, shockingly healthy, and totally satisfying. We took chia
+          pudding and made it exciting.
+        </p>
+
+        <p>And packed it with protein.</p>
+
+        <div class="section-separator"></div>
+
+        <h3 style="text-align: center">VIBE CHECK</h3>
+        <ul>
+          <li>
+            <span class="icon">💯</span>
+            <div class="content">
+              <strong>Not Pretentious</strong>
+              <p>Just real ingredients that work. No buzzwords needed.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icon">😂</span>
+            <div class="content">
+              <strong>Actually Enjoyable</strong>
+              <p>Because healthy food shouldn't feel like punishment.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icon">💪</span>
+            <div class="content">
+              <strong>Seriously Effective</strong>
+              <p>50g of protein and real nutrition that keeps you going.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icon">🗽</span>
+            <div class="content">
+              <strong>NY Through & Through</strong>
+              <p>Created for peeps who don't have time for breakfast drama.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="why-slop">
+      <div class="section-inner">
+        <h2>Put Down That Breakfast Muffin</h2>
+        <p>
+          New York runs on caffeine and questionable breakfast choices. But your
+          body deserves better. Here's why SLOP! needs to be your new morning
+          move:
+        </p>
+
+        <div class="benefit-section">
+          <h3>⚡ Sustained Energy That Actually Lasts</h3>
+          <p>
+            No more 10am crash. No more hangry lunch countdown. SLOP! combines
+            protein, fiber, and healthy fats to keep you energized through your
+            morning meetings and beyond.
+          </p>
+        </div>
+
+        <div class="benefit-section">
+          <h3>😋 Flavor That Makes You Forget It's Healthy</h3>
+          <p>
+            Creamy chia pudding, bursting with fresh blueberries and sweet
+            mangoes. This isn't your typical "healthy" breakfast – it's a treat
+            that just happens to be good for you.
+          </p>
+        </div>
+
+        <div class="benefit-section">
+          <h3>🌱 Clean Ingredients You Can Trust</h3>
+          <p>
+            Just six simple, plant-based ingredients working together in perfect
+            harmony. No fillers, no nonsense, and definitely no weird stuff you
+            can't pronounce.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ingredients">
+      <div class="section-inner">
+        <h2>Meet the Superfood Squad</h2>
+        <p>
+          We're obsessed with ingredients that are both delicious and do amazing
+          things for your body. Here's the roster:
+        </p>
+
+        <div class="ingredient-grid">
+          <div class="ingredient-card">
+            <div class="card-header">
+              <h4>CHIA SEEDS</h4>
+              <span class="weight">48g</span>
+            </div>
+            <p>Tiny Seeds, Mighty Power</p>
+            <div class="nutrition-metrics">
+              <span class="metric">16g fiber</span>
+              <span class="metric">10g protein</span>
+            </div>
+            <ul>
+              <li><span>🌾</span> Fiber Force</li>
+              <li><span>❤️</span> Omega-3s</li>
+              <li><span>💦</span> Hydration Hero</li>
+            </ul>
+          </div>
+
+          <div class="ingredient-card">
+            <div class="card-header">
+              <h4>SOY MILK</h4>
+              <span class="weight">1 cup</span>
+            </div>
+            <p>The Strongest Plant Milk</p>
+            <div class="nutrition-metrics">
+              <span class="metric">9g protein</span>
+            </div>
+            <ul>
+              <li><span>🌱</span> Plant Power</li>
+              <li><span>💪</span> Protein Punch</li>
+              <li><span>👌</span> Good for Cholesterol</li>
+            </ul>
+          </div>
+
+          <div class="ingredient-card">
+            <div class="card-header">
+              <h4>PLANT PROTEIN</h4>
+              <span class="weight">46g</span>
+            </div>
+            <p>Boost your Body</p>
+            <div class="nutrition-metrics">
+              <span class="metric">20g protein</span>
+            </div>
+            <ul>
+              <li><span>🌱</span> Plant Power x 2</li>
+              <li><span>💪</span> Muscle Support</li>
+              <li><span>🌿</span> Easy to Digest</li>
+            </ul>
+          </div>
+
+          <div class="ingredient-card">
+            <div class="card-header">
+              <h4>BLUEBERRIES</h4>
+              <span class="weight">50g</span>
+            </div>
+            <p>Antioxidant Bombs</p>
+            <div class="nutrition-metrics">
+              <span class="metric">Real good</span>
+            </div>
+            <ul>
+              <li><span>🫐</span> Antioxidants</li>
+              <li><span>🧠</span> Brain Boost</li>
+              <li class="blueprint-approved">
+                <a
+                  href="https://www.youtube.com/watch?v=8eb_41ZpyOQ"
+                  target="_blank"
+                >
+                  <span
+                    ><img
+                      src="bryan-j-face.png"
+                      alt="Bryan Johnson"
+                      class="bryan-emoji"
+                  /></span>
+                  Blueprint Approved
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="ingredient-card">
+            <div class="card-header">
+              <h4>MANGOES</h4>
+              <span class="weight">50g</span>
+            </div>
+            <p>Tropical Flavor Burst</p>
+            <div class="nutrition-metrics">
+              <span class="metric">Too good</span>
+            </div>
+            <ul>
+              <li><span>🥭</span> S-Tier Fruit</li>
+              <li><span>🛡️</span> Immunity Booster</li>
+              <li><span>🌿</span> Digestion Ally</li>
+            </ul>
+          </div>
+
+          <div
+            class="ingredient-card"
+            style="opacity: 0.7; background: rgba(240, 240, 240, 0.95)"
+          >
+            <div class="card-header">
+              <h4>NOTHING ELSE</h4>
+              <span class="weight" style="background: #888">0g</span>
+            </div>
+            <p>That's Right. Nothing.</p>
+            <div class="nutrition-metrics">
+              <span class="metric" style="background: rgba(44, 62, 80, 0.05)"
+                >0g everything else</span
+              >
+            </div>
+            <ul>
+              <li><span>🚫</span> No Fillers</li>
+              <li><span>✨</span> No Nonsense</li>
+              <li><span>💅</span> Just Pure SLOP!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="get-in-touch">
+      <div class="section-inner">
+        <h2>Ready to SLOP!?</h2>
+        <p>
+          We're excited to share SLOP! with you, and we want you to be the first
+          to know when we officially launch. Since we're still in beta, we're
+          keeping things exclusive for now. Tell us you're interested, and we'll
+          keep you in the loop! Word on the street is we'll be at Essex Market
+          soon.
+        </p>
+
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/xzzdvgzj"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="New SLOP! Signup 🎉" />
+          <!-- Honeypot field to catch bots -->
+          <input type="text" name="_gotcha" style="display: none" />
+          <!-- Domain verification -->
+          <input type="hidden" name="_url" value="https://slop.city" />
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="neighborhood">Which neighborhood are you in?</label>
+          <select id="neighborhood" name="neighborhood">
+            <option value="">-- Select --</option>
+            <option value="lower-east-side">Lower East Side</option>
+            <option value="manhattan-other">Manhattan (Other)</option>
+            <option value="brooklyn">Brooklyn</option>
+            <option value="queens">Queens</option>
+            <option value="bronx">Bronx</option>
+            <option value="staten-island">Staten Island</option>
+            <option value="just-visiting">Just Visiting</option>
+            <option value="not-in-nyc">Not in NYC (But Wish I Was!)</option>
+          </select>
+
+          <label for="whySlop">Why are you excited about SLOP!?</label>
+          <textarea id="whySlop" name="whySlop"></textarea>
+
+          <button type="submit" class="cta-button">Show me the SLOP!</button>
+          <p class="small-print">
+            We promise not to spam you – just delicious SLOP! updates. We
+            respect your privacy, obvs.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>© 2025 SLOP! All Rights Reserved.</p>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+    </footer>
+    <script>
+      document
+        .getElementById('contact-form')
+        .addEventListener('submit', async function (e) {
+          e.preventDefault()
+
+          // Get form data
+          const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            neighborhood: document.getElementById('neighborhood').value,
+            whySlop: document.getElementById('whySlop').value,
+            _url: 'https://slop.city',
+          }
+
+          // Show loading state
+          const submitButton = this.querySelector('button[type="submit"]')
+          const originalButtonText = submitButton.innerHTML
+          submitButton.innerHTML = 'Sending...'
+          submitButton.disabled = true
+
+          try {
+            const response = await fetch('https://formspree.io/f/xzzdvgzj', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                Origin: 'https://slop.city',
+              },
+              body: JSON.stringify(formData),
+            })
+
+            const result = await response.json()
+
+            if (response.ok) {
+              // Clear the form
+              this.reset()
+
+              // Show success message
+              const successMessage = document.createElement('div')
+              successMessage.style.cssText = `
+                background: #2ecc71;
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                margin-top: -20px;
+                margin-bottom: 20px;
+                font-weight: 500;
+                animation: slideDown 0.5s ease-out;
+              `
+              successMessage.innerHTML = `
+                <h3 style="color: white; margin-bottom: 10px;">🎉 You're on the list!</h3>
+                <p style="margin: 0;">Thanks for joining the SLOP! squad. We'll be in touch soon!</p>
+              `
+
+              // Insert the success message before the form
+              this.parentNode.insertBefore(successMessage, this)
+
+              // Scroll to success message
+              successMessage.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+              })
+
+              // Remove success message after 5 seconds
+              setTimeout(() => {
+                successMessage.style.animation =
+                  'slideUp 0.5s ease-out forwards'
+                setTimeout(() => successMessage.remove(), 500)
+              }, 5000)
+            } else {
+              throw new Error('Submission failed')
+            }
+          } catch (error) {
+            // Show error message
+            const errorMessage = document.createElement('div')
+            errorMessage.style.cssText = `
+              background: #e74c3c;
+              color: white;
+              padding: 20px;
+              border-radius: 10px;
+              text-align: center;
+              margin-top: -20px;
+              margin-bottom: 20px;
+              font-weight: 500;
+              animation: slideDown 0.5s ease-out;
+            `
+            errorMessage.innerHTML = `
+              <h3 style="color: white; margin-bottom: 10px;">😅 Oops!</h3>
+              <p style="margin: 0;">Something went wrong. Please try again in a few minutes.</p>
+            `
+
+            // Insert the error message before the form
+            this.parentNode.insertBefore(errorMessage, this)
+
+            // Scroll to error message
+            errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' })
+
+            // Remove error message after 5 seconds
+            setTimeout(() => {
+              errorMessage.style.animation = 'slideUp 0.5s ease-out forwards'
+              setTimeout(() => errorMessage.remove(), 500)
+            }, 5000)
+          } finally {
+            // Restore button state
+            submitButton.innerHTML = originalButtonText
+            submitButton.disabled = false
+          }
+        })
+
+      // Add animations to <style> section
+      document.querySelector('style').textContent += `
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideUp {
+          from {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          to {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+        }
+      `
+    </script>
+  </body>
+</html>
