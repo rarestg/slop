@@ -1,0 +1,93 @@
+/* Hero Section */
+#hero {
+  background: linear-gradient(135deg, #fff8e1 0%, #fffde7 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+#hero .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#hero h1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.logo-container {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 700px;
+  padding: 10px;
+  margin-left: -60px;
+  min-height: 250px;
+}
+
+.cup-image {
+  width: 280px;
+  height: auto;
+  margin-right: -140px;
+  margin-bottom: -20px;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+  animation: float-cup 4s ease-in-out infinite;
+  z-index: 1;
+  transform-origin: center center;
+  position: relative;
+  top: -10px;
+  left: -20px;
+}
+
+#hero .logo {
+  width: 180px;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+  animation: float-logo 5s ease-in-out infinite;
+  margin-top: 40px;
+  transform-origin: center center;
+  right: -20px;
+}
+
+#hero .logo:hover {
+  animation-play-state: paused;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+}
+
+.cup-image:hover {
+  animation-play-state: paused;
+}
+
+#hero .tagline {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: 500;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+#hero .hero-image {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 800px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#hero .hero-image:hover {
+  transform: translateY(-5px) rotate(-1deg);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}

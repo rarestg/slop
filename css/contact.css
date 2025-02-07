@@ -1,0 +1,68 @@
+/* Get in Touch Section */
+#get-in-touch {
+  background: linear-gradient(135deg, #fff8e1 0%, #fffde7 100%);
+  position: relative;
+  padding: 40px 0 80px;
+}
+
+#get-in-touch .section-inner > p {
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#contact-form {
+  background: rgba(255, 255, 255, 0.9);
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+#contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+#contact-form input[type='text'],
+#contact-form input[type='email'],
+#contact-form select,
+#contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  font-family: 'DM Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+#contact-form .cta-button {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#contact-form .small-print {
+  text-align: center;
+  color: #666;
+  font-size: 0.9em;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#contact-form input:focus,
+#contact-form select:focus,
+#contact-form textarea:focus {
+  outline: none;
+  border-color: #fce44c;
+  box-shadow: 0 0 0 3px rgba(252, 228, 76, 0.2);
+}

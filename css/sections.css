@@ -1,0 +1,182 @@
+/* What IS SLOP!? Section */
+#what-is-slop {
+  background: linear-gradient(135deg, #fce44c 0%, #ffd700 100%);
+  padding: 60px 0 80px;
+}
+
+.section-separator {
+  width: 100%;
+  height: 2px;
+  background: rgba(44, 62, 80, 0.1);
+  margin: 40px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-separator::before {
+  content: '★';
+  color: rgba(44, 62, 80, 0.3);
+  position: absolute;
+  padding: 0 20px;
+  font-size: 1.2em;
+  background: #fde03a;
+}
+
+#what-is-slop ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+#what-is-slop li {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+#what-is-slop li:hover {
+  transform: translateY(-5px) rotate(-1deg);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+#what-is-slop li .icon {
+  font-size: 3.5em;
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  opacity: 0.5;
+  transform: rotate(-15deg);
+  transition: all 0.3s ease;
+}
+
+#what-is-slop li:hover .icon {
+  transform: rotate(-20deg) scale(1.1);
+  opacity: 0.7;
+}
+
+#what-is-slop li .content {
+  position: relative;
+  z-index: 1;
+  text-align: right;
+  padding-left: 20px;
+}
+
+#what-is-slop li .content strong {
+  display: block;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  font-weight: 700;
+  font-size: 1.1em;
+  margin-left: 0;
+  padding-right: 15px;
+}
+
+#what-is-slop li .content p {
+  margin: 0;
+  padding-top: 5px;
+  padding-right: 15px;
+}
+
+#what-is-slop h3 {
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+/* Why SLOP!? Section */
+#why-slop {
+  background: linear-gradient(135deg, #fffde7 0%, #fff8e1 100%);
+  position: relative;
+  z-index: 1;
+  padding: 40px 0 40px;
+}
+
+#why-slop p {
+  margin: 2em 0;
+}
+
+.benefit-section {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.benefit-section:hover {
+  transform: translateY(-5px) rotate(-1deg);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-section h3 {
+  transition: all 0.3s ease;
+}
+
+.benefit-section:hover h3 {
+  transform: scale(1.02);
+}
+
+.falling-text {
+  display: inline-flex;
+  align-items: baseline;
+  position: relative;
+  min-width: 300px;
+  height: 60px;
+  perspective: 200px;
+  transform-style: preserve-3d;
+  margin-left: 10px;
+}
+
+.text-option {
+  position: absolute;
+  left: 0;
+  top: 21px;
+  width: 100%;
+  transform-origin: 50% 50% -20px;
+  backface-visibility: hidden;
+  display: none;
+}
+
+.text-option.active {
+  display: block;
+  animation: slideInTop 0.4s ease-out forwards;
+}
+
+.text-option.leaving {
+  display: block;
+  animation: slideOutBottom 0.4s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+  .falling-text {
+    display: block;
+    margin-left: 0;
+    height: 45px;
+    margin-top: 0;
+  }
+
+  .text-option {
+    top: 0;
+  }
+}
+
+/* Ingredients Section */
+#ingredients {
+  background: linear-gradient(135deg, #ffd700 0%, #fce44c 100%);
+  padding: 20px 0 80px;
+}

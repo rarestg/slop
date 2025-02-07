@@ -1,0 +1,268 @@
+/* Ingredients Section */
+#ingredients {
+  background: linear-gradient(135deg, #ffd700 0%, #fce44c 100%);
+  padding: 40px 0 80px;
+}
+
+.ingredient-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.weight {
+  font-family: 'Bangers', cursive;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #fff;
+  background: #ff3b3b;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  transform: rotate(12deg);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), inset 0 -3px 6px rgba(0, 0, 0, 0.1),
+    inset 0 3px 6px rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  letter-spacing: 2px;
+}
+
+.weight::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border: 2px dashed rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+}
+
+.weight::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 100%
+  );
+  border-radius: 55px 55px 0 0;
+}
+
+.ingredient-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: visible;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 12px;
+  padding-right: 75px;
+}
+
+.ingredient-card h4 {
+  color: #2c3e50;
+  font-family: 'Bangers', cursive;
+  font-size: 1.8em;
+  margin: 0;
+  letter-spacing: 3px;
+  transition: all 0.3s ease;
+  line-height: 1.1;
+}
+
+.ingredient-card p {
+  color: #486683;
+  margin: 0 0 12px;
+  font-size: 1em;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* Nutrition Metrics Styles */
+.nutrition-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.nutrition-metrics .metric {
+  background: #2c3e50;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.nutrition-metrics .metric::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px 20px 0 0;
+}
+
+.ingredient-card ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ingredient-card ul li {
+  text-align: right;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  color: #486683;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.ingredient-card ul li span {
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+}
+
+.ingredient-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.ingredient-card:hover h4 {
+  transform: scale(1.02);
+}
+
+.ingredient-card:hover .weight {
+  transform: rotate(15deg) scale(1.05);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2), inset 0 -3px 6px rgba(0, 0, 0, 0.1),
+    inset 0 3px 6px rgba(255, 255, 255, 0.1);
+}
+
+.bryan-emoji {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  margin-right: 2px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.blueprint-approved a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #486683;
+  font-weight: 500;
+  background: rgba(135, 206, 250, 0.15);
+  padding: 8px 12px;
+  border-radius: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+  isolation: isolate;
+}
+
+.blueprint-approved a::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  padding: 2px;
+  background: linear-gradient(90deg, #3498db 0%, #2ecc71 50%, #3498db 100%);
+  background-size: 200% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotate-border 3s linear infinite;
+}
+
+@keyframes rotate-border {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.blueprint-approved a:hover {
+  color: #2c3e50;
+  background: rgba(135, 206, 250, 0.25);
+  transform: translateY(-2px);
+}
+
+.blueprint-approved a:hover::before {
+  animation-duration: 1.5s;
+}
+
+.blueprint-approved {
+  position: relative;
+  animation: gentle-bounce 2s ease-in-out infinite;
+}
+
+.blueprint-approved:hover {
+  animation: excited-bounce 0.5s ease-in-out infinite;
+}
+
+.blueprint-approved:hover .bryan-emoji {
+  transform: scale(1.2) rotate(-5deg);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes gentle-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes excited-bounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.02);
+  }
+}
